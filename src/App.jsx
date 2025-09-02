@@ -42,6 +42,7 @@ const PortfolioPage = () => {
     hidden: { opacity: 0, y: 18 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, delay: d } },
   });
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FFF5FF] via-[#F3E8FF] to-[#F9F7FF] text-gray-900">
@@ -61,17 +62,62 @@ const PortfolioPage = () => {
             <a href="#contact" className="ml-2 inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 text-sm font-medium shadow">Contact</a>
           </nav>
 
-          <button className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-gray-200">
+          
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-gray-200"
+          >
             <span className="sr-only">Open menu</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-700"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-gray-700"
+            >
+              {menuOpen ? (
+                // X (Close icon)
+                <path
+                  d="M6 6l12 12M6 18L18 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              ) : (
+                // Hamburger (3 lines)
+                <path
+                  d="M3 6h18M3 12h18M3 18h18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              )}
+            </svg>
           </button>
         </div>
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <nav className="md:hidden bg-white/80 backdrop-blur-md border-t border-gray-200 px-6 py-4 space-y-4">
+            <a href="#home" className="block text-sm hover:text-purple-600">Home</a>
+            <a href="#about" className="block text-sm hover:text-purple-600">About</a>
+            <a href="#workflow" className="block text-sm hover:text-purple-600">Workflow</a>
+            <a href="#portfolio" className="block text-sm hover:text-purple-600">Portfolio</a>
+            <a
+              href="#contact"
+              className="block w-full text-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 text-sm font-medium shadow"
+            >
+              Contact
+            </a>
+          </nav>
+        )}
       </header>
 
 
       <main className="max-w-6xl mx-auto px-6">
         {/* HERO */}
-        <section className="grid lg:grid-cols-2 gap-8 items-center py-12">
+        <section className="grid grid-cols-2 gap-8 items-center py-12">
           <motion.div initial="hidden" animate="show" variants={reduce ? {} : fadeUp(0.1)}>
             <p className="text-md text-black-900 font-medium">Hello, I'm Precious</p>
             <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">
@@ -94,18 +140,19 @@ const PortfolioPage = () => {
         
 
         {/* ABOUT */}
-        <section id="about">
+        <section id="about" className="grid grid-cols-2 gap-8 items-center py-12">
+          <motion.div className="flex justify-center gap-8 items-center py-8" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}>
+                {/* Use a cutout profile image – put your image in public/assets */}
+                <img src= {PreciousImage} alt="Precious smiling" className="w-64 md:w-80 lg:w-96 object-contain drop-shadow-2xl -mb-6" />
+          </motion.div >
           
           
           <motion.div  initial="hidden" whileInView="show" viewport={{ once: true }} variants={reduce ? {} : fadeUp(0.15)}>
             <h3 className="text-lg font-bold text-2xl text-gray-900 mb-6 gradient-underline text-center">About Me</h3>
-            <div className="bg-white/60 rounded-2xl p-6 md:p-10 shadow-inner border border-white/40 grid lg:grid-cols-2 gap-8 items-center py-8">
+            <div className="bg-white/60 rounded-2xl p-6 md:p-10 shadow-inner border border-white/40 items-center py-8">
               
-              <motion.div className="flex justify-center lg:grid-cols-1 gap-8 items-center py-8" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}>
-                {/* Use a cutout profile image – put your image in public/assets */}
-                <img src= {PreciousImage} alt="Precious smiling" className="w-64 md:w-80 lg:w-96 object-contain drop-shadow-2xl -mb-6" />
-              </motion.div >
-              <div className="justify-center lg:grid-cols-1 gap-8 items-center py-8">
+              
+              <div className="justify-center gap-8 items-center py-8">
                 <p className="mt-3 text-black-1000 font-semibold">I am a UI/UX designer who loves turning ideas into<br /> smooth intuitive experiences. <br /> I enjoy simplifying complex problems through design,<br /> making products easy to use.</p>
                 <br />
                 <div className="mt-4">
