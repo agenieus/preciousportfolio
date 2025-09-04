@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import PreciousImage from "./assets/image/Capture.PNG";
-import Sample1 from "./assets/image/bird.jpg";
-import Sample2 from "./assets/image/building.jpg";
-import Sample3 from "./assets/image/italy.jpg";
-import Sample4 from "./assets/image/lake.jpg";
+import PreciousImage from "./assets/image/precious.jpeg";
+import Sample1 from "./assets/image/project1.jpeg";
+import Sample2 from "./assets/image/project1.jpeg";
+import Sample3 from "./assets/image/project1.jpeg";
+import Sample4 from "./assets/image/project1.jpeg";
 import { useState } from "react";
 
 const portfolioImages = [
@@ -55,11 +55,12 @@ const PortfolioPage = () => {
             <span className="font-semibold">Precious</span>
           </a>
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#contact" className="text-sm hover:text-purple-600">Home</a>
+            <a href="#hero" className="text-sm hover:text-purple-600">Home</a>
             <a href="#about" className="text-sm hover:text-purple-600">About</a>
             <a href="#workflow" className="text-sm hover:text-purple-600">Workflow</a>
             <a href="#portfolio" className="text-sm hover:text-purple-600">Portfolio</a>
-            <a href="#contact" className="ml-2 inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 text-sm font-medium shadow">Contact</a>
+            <a href="#contact" className="ml-2 inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 text-sm font-medium shadow transition duration-300 
+               hover:opacity-90 hover:scale-105">Contact</a>
           </nav>
 
           
@@ -100,13 +101,14 @@ const PortfolioPage = () => {
         {/* Mobile Menu */}
         {menuOpen && (
           <nav className="md:hidden bg-white/80 backdrop-blur-md border-t border-gray-200 px-6 py-4 space-y-4">
-            <a href="#home" className="block text-sm hover:text-purple-600">Home</a>
+            <a href="#hero" className="block text-sm hover:text-purple-600">Home</a>
             <a href="#about" className="block text-sm hover:text-purple-600">About</a>
             <a href="#workflow" className="block text-sm hover:text-purple-600">Workflow</a>
             <a href="#portfolio" className="block text-sm hover:text-purple-600">Portfolio</a>
             <a
               href="#contact"
-              className="block w-full text-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 text-sm font-medium shadow"
+              className="block w-full text-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 text-sm font-medium shadow transition duration-300 
+               hover:opacity-90 hover:scale-105"
             >
               Contact
             </a>
@@ -117,7 +119,7 @@ const PortfolioPage = () => {
 
       <main className="max-w-6xl mx-auto px-6">
         {/* HERO */}
-        <section className="grid grid-cols-2 gap-8 items-center py-12">
+        <section id="hero" className="grid grid-cols-2 gap-8 items-center py-12">
           <motion.div initial="hidden" animate="show" variants={reduce ? {} : fadeUp(0.1)}>
             <p className="text-md text-black-900 font-medium">Hello, I'm Precious</p>
             <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">
@@ -126,8 +128,10 @@ const PortfolioPage = () => {
             <p className="mt-4 text-gray-600 max-w-xl">Passionate about creating user-friendly interfaces;<br></br> turning complex ideas into simple solutions.</p>
 
             <div className="mt-6 flex gap-3">
-              <a href="#contact" className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-5 py-3 text-sm font-semibold shadow-lg">Contact me</a>
-              <a href="#portfolio" className="inline-flex items-center rounded-full border border-purple-800 px-4 py-3 text-sm font-medium">View My work</a>
+              <a href="#contact" className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-5 py-2 text-sm font-semibold shadow-lg transition duration-300 
+               hover:opacity-90 hover:scale-105">Contact me</a>
+              <a href="#portfolio" className="inline-flex items-center rounded-full border border-purple-800 px-4 py-2 text-sm font-medium transition duration-300 
+               hover:opacity-90 hover:scale-105">View My work</a>
             </div>
           </motion.div>
 
@@ -140,6 +144,7 @@ const PortfolioPage = () => {
         
 
         {/* ABOUT */}
+        <h3 className="text-lg font-bold text-2xl text-gray-900 mb-6 gradient-underline text-center">About Me</h3>
         <section id="about" className="grid grid-cols-2 gap-8 items-center py-12">
           <motion.div className="flex justify-center gap-8 items-center py-8" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}>
                 {/* Use a cutout profile image – put your image in public/assets */}
@@ -148,15 +153,15 @@ const PortfolioPage = () => {
           
           
           <motion.div  initial="hidden" whileInView="show" viewport={{ once: true }} variants={reduce ? {} : fadeUp(0.15)}>
-            <h3 className="text-lg font-bold text-2xl text-gray-900 mb-6 gradient-underline text-center">About Me</h3>
-            <div className="bg-white/60 rounded-2xl p-6 md:p-10 shadow-inner border border-white/40 items-center py-8">
+            <div className="bg-white/60 rounded-2xl p-6 md:p-10 shadow-inner border border-white/40 items-center py-8"> 
               
               
               <div className="justify-center gap-8 items-center py-8">
                 <p className="mt-3 text-black-1000 font-semibold">I am a UI/UX designer who loves turning ideas into<br /> smooth intuitive experiences. <br /> I enjoy simplifying complex problems through design,<br /> making products easy to use.</p>
                 <br />
                 <div className="mt-4">
-                  <a href="#contact" className="inline-flex items-center rounded-full bg-purple-500 text-white px-4 py-2 text-sm font-medium">Hire me</a>
+                  <a href="#contact" className="inline-flex items-center rounded-full bg-purple-500 text-white px-4 py-2 text-sm font-medium transition duration-300 
+               hover:opacity-90 hover:scale-105">Hire me</a>
                 </div>
               </div>
             </div>
@@ -201,7 +206,8 @@ const PortfolioPage = () => {
               <h3 className="text-2xl font-bold text-black">UI/UX<br/><span className="block md:inline text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-500">Designs</span></h3>
               <p className="mt-3 text-gray-600 max-w-sm">Selected works focusing on product design, mobile-first flows, and pixel-perfect visual systems.</p>
               <div className="mt-6">
-                <a href="#portfolio" className="inline-flex items-center rounded-full bg-purple-500 text-white px-4 py-2 text-sm font-medium">View My Work</a>
+                <a href="#portfolio" className="inline-flex items-center rounded-full bg-purple-500 text-white px-4 py-2 text-sm font-medium transition duration-300 
+               hover:opacity-90 hover:scale-105">View My Work</a>
               </div>
             </motion.div>
 
@@ -228,13 +234,14 @@ const PortfolioPage = () => {
             >
 
               <label className="sr-only" htmlFor="email">Email</label>
-              <input id="email" type="email" name="email" placeholder="Email" className="px-4 py-3 rounded-lg border border-transparent bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-200" required/>
+              <input id="email" type="email" name="email" placeholder="Email" className="px-4 py-3 rounded-lg border border-purple-500 bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-200" required/>
 
               <label className="sr-only" htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Message" className="px-4 py-3 rounded-lg border border-transparent bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-200" required></textarea>
+              <textarea id="message" name="message" rows="5" placeholder="Message" className="px-4 py-3 rounded-lg border border-purple-500 bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-200" required></textarea>
 
               <div className="text-right">
-                <button type="submit" className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 text-sm font-medium shadow">
+                <button type="submit" className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 text-sm font-medium shadow transition duration-300 
+               hover:opacity-90 hover:scale-105">
                   {status === "sending" ? "Sending..." : "Send"}
                 </button>
               </div>
