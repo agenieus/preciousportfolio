@@ -129,9 +129,9 @@ const PortfolioPage = () => {
 
             <div className="mt-6 flex gap-3">
               <a href="#contact" className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white px-5 py-2 text-sm font-semibold shadow-lg transition duration-300 
-               hover:opacity-90 hover:scale-105">Contact me</a>
+               hover:opacity-90 hover:scale-105">Contact</a>
               <a href="#portfolio" className="inline-flex items-center rounded-full border border-purple-800 px-4 py-2 text-sm font-medium transition duration-300 
-               hover:opacity-90 hover:scale-105">View My work</a>
+               hover:opacity-90 hover:scale-105">View Work</a>
             </div>
           </motion.div>
 
