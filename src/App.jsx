@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import PreciousImage from "./assets/image/precious.jpeg";
+import PreciousImage from "./assets/image/precious.png";
 import Sample1 from "./assets/image/project1.jpeg";
-import Sample2 from "./assets/image/project1.jpeg";
-import Sample3 from "./assets/image/project1.jpeg";
-import Sample4 from "./assets/image/project1.jpeg";
+import Sample2 from "./assets/image/project2.PNG";
+import Sample3 from "./assets/image/project4.PNG";
+import Sample4 from "./assets/image/project3.PNG";
 import { useState } from "react";
 
 const portfolioImages = [
